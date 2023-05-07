@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [row,setRow]=useState([]);
+  const [count, setCount] = useState(0)
+  const [row,setRow]=useState([])
   const loadAPI = async () => {
     if( row.length === 0 ) {
       fetch("http://openAPI.seoul.go.kr:8088/78636e4e496269673634556a795559/json/RealtimeCityAir/1/25/").then(
@@ -21,6 +22,35 @@ function App() {
   
   return (
     <>
+    <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+      
+      <div> (과제 퀴즈) main.jsx의 실제 js 모습은 어떨까? 예상해서 작성해 보시오</div>
+      <div> =&gt; App.jsx에서 return() 안에 있는 html 요소들이 모두 React.createElement()형식으로 바뀌고 </div>
+      <div>변수도 useState없이 사용될 것 같다.</div>
+      <br></br>
+      <div> (과제 퀴즈) 어떻게 하면 그 결과를 얻어올 수 있을까?</div>
+      <div>import React from &apos;react&apos;를 통해 React.createElement를 가져와 결과를 얻어오는 것 같다.</div>
+      <br></br>
+      <br></br>
     <button onClick={loadAPI}>
       <div className='loading'></div>데이터 불러오기</button>
       <table>
