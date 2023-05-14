@@ -22,7 +22,7 @@ function App() {
   
   return (
     <>
-    <div>
+    {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -50,7 +50,7 @@ function App() {
       <div> (과제 퀴즈) 어떻게 하면 그 결과를 얻어올 수 있을까?</div>
       <div>import React from &apos;react&apos;를 통해 React.createElement를 가져와 결과를 얻어오는 것 같다.</div>
       <br></br>
-      <br></br>
+      <br></br> */}
     <button onClick={loadAPI}>
       <div className='loading'></div>데이터 불러오기</button>
       <table>
@@ -63,7 +63,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {
+          {/* {
             row.map(function(obj){
               return <tr>
                 <td>{obj.MSRSTE_NM}</td>
@@ -72,7 +72,19 @@ function App() {
                 <td>{obj.IDEX_NM}</td>
               </tr>
           })
+          } */}
+          {
+            row.map((gu,idx)=>{
+              return <tr key={idx}>
+                <td>{gu.MSRSTE_NM}</td>
+                <td>{gu.PM10}</td>
+                <td>{gu.O3}</td>
+                <td>{gu.IDEX_NM}</td>
+              </tr>
+          })
           }
+          {/* 중괄호 자바스크립트 영역임을 나타냄 
+          map 함수 안에 들어가는 function을 map callback function이라고 한다*/}
         </tbody>
       </table>
     </>
